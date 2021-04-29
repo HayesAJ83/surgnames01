@@ -7,7 +7,7 @@ app = Flask(__name__)
  
 @app.route('/')
 def index(): 
-  return render_template('index.html', title='Main')
+  return render_template('index_mod.html', title='Main')
 
 @app.route('/send_email', methods=['POST'])
 def send_email():
