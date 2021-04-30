@@ -203,3 +203,29 @@ span.output{
 .bs-example textarea {
     width: 100%;
 }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+   .footer
+   {
+       position: relative;
+   
+       background-color: #1f2749;
+       background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
+   }
+   .footer::before
+   {
+       position: absolute;
+       top: 0;
+       right: 0;
+       bottom: 0;
+       left: 0;
+   
+       content: '';
+   
+       background-color: rgba(31, 39, 73, .97);
+   }
+   
