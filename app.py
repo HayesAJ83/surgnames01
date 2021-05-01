@@ -19,16 +19,11 @@ def index():
   S = set(splits)
   T = np.array(list(S)).astype(object)
   U = np.sort(T)
-  test = widgets.SelectMultiple(
+  dis = widgets.SelectMultiple(
     options = list(U),
-    rows = 10,
-    description = 'Step 1) Choose a disease, sign or symptom:',
     disabled = False)
     
-    
-  #disease = st.multiselect('Step 1) Choose a disease, sign or symptom:', options=list(U),)
-
-  return render_template('02_index.html', title='main', my_table=test)
+  return render_template('02_index.html', title='main', my_table=dis)
 
 #@app.route('/send_email', methods=['POST'])
 #def send_email():
