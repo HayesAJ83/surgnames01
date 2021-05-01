@@ -12,7 +12,7 @@ def index():
   url = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/Eponyms4python_Lite.csv'
   df1 = pd.read_csv(url, dtype={'PMID':str,'Year':int})
   df2 = df1.sort_values(by=['Eponym'],ascending=True)
-  return render_template('02_index.html', title='main', table=df2)
+  return render_template('02_index.html', title='main', my_table=df2)
 
 #@app.route('/send_email', methods=['POST'])
 #def send_email():
