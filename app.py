@@ -28,7 +28,7 @@ def index():
     
   #disease = st.multiselect('Step 1) Choose a disease, sign or symptom:', options=list(U),)
 
-  return render_template('02_index.html', title='main', my_table=test.show())
+  return render_template('02_index.html', title='main', my_table=test)
 
 #@app.route('/send_email', methods=['POST'])
 #def send_email():
