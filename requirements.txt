@@ -15,4 +15,4 @@ numpy
 matplotlib
 plotly
 requests
-streamlit
+ipywidgets
