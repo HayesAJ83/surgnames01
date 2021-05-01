@@ -16,4 +16,3 @@ matplotlib
 plotly
 requests
 streamlit
-jinja2
