@@ -1,6 +1,7 @@
 import sys
 import logging
 import os
+import numpy as np
 import pandas as pd
 import streamlit as st
 from flask import Flask, render_template, request, jsonify
@@ -9,10 +10,18 @@ app = Flask(__name__)
  
 @app.route('/')
 def index():
+
   url = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/Eponyms4python_Lite.csv'
-  df1 = pd.read_csv(url, dtype={'PMID':str,'Year':int})
-  df2 = df1.sort_values(by=['Eponym'],ascending=True)
-  return render_template('02_index.html', title='main', my_table=df2)
+  df = pd.read_csv(url, dtype={'PMID':str,'Year':int})
+  df1 = df['Disease'].dropna()
+  string = df1.str.cat(sep=',')
+  splits = string.split(",")
+  S = set(splits)
+  T = np.array(list(S)).astype(object)
+  U = np.sort(T)
+  disease = st.multiselect('Step 1) Choose a disease, sign or symptom:', options=list(U),)
+
+  return render_template('02_index.html', title='main', my_table=disease)
 
 #@app.route('/send_email', methods=['POST'])
 #def send_email():
