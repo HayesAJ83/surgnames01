@@ -2,7 +2,6 @@ import sys
 import logging
 import os
 import pandas as pd
-import streamlit as st
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
