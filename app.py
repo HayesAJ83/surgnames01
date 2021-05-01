@@ -3,7 +3,7 @@ import logging
 import os
 import numpy as np
 import pandas as pd
-import streamlit as st
+import ipywidgets as widgets
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
@@ -19,9 +19,16 @@ def index():
   S = set(splits)
   T = np.array(list(S)).astype(object)
   U = np.sort(T)
-  disease = st.multiselect('Step 1) Choose a disease, sign or symptom:', options=list(U),)
+  test = widgets.SelectMultiple(
+    options = list(U),
+    rows = 10,
+    description = 'Step 1) Choose a disease, sign or symptom:',
+    disabled = False)
+    
+    
+  #disease = st.multiselect('Step 1) Choose a disease, sign or symptom:', options=list(U),)
 
-  return render_template('02_index.html', title='main', my_table=disease)
+  return render_template('02_index.html', title='main', my_table=test.show())
 
 #@app.route('/send_email', methods=['POST'])
 #def send_email():
