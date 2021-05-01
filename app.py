@@ -20,8 +20,8 @@ def index():
   T = np.array(list(S)).astype(object)
   U = np.sort(T)
   disease = st.multiselect('Step 1) Choose a disease, sign or symptom:', options=list(U),)
-
-  return render_template('02_index.html', title='main', my_table=df1)
+  df3 = 'test'
+  return render_template('02_index.html', title='main', my_table=df3)
 
 #@app.route('/send_email', methods=['POST'])
 #def send_email():
