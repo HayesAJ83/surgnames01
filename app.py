@@ -13,7 +13,7 @@ def index():
 
   url = 'https://raw.githubusercontent.com/HayesAJ83/SurgicalEps_01/main/Eponyms4python_Lite.csv'
   df = pd.read_csv(url, dtype={'PMID':str,'Year':int})
-  df1 = df['Disease'].dropna()
+  df1 = df['Disease'].dropna().head()
   string = df1.str.cat(sep=',')
   splits = string.split(",")
   S = set(splits)
@@ -21,7 +21,7 @@ def index():
   U = np.sort(T)
   disease = st.multiselect('Step 1) Choose a disease, sign or symptom:', options=list(U),)
   df3 = 'test'
-  return render_template('02_index.html', title='main', my_table=df3)
+  return render_template('02_index.html', title='main', my_table=df1)
 
 #@app.route('/send_email', methods=['POST'])
 #def send_email():
